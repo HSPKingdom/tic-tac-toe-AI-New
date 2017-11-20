@@ -1,15 +1,17 @@
 package game;
 
-public class Item {
+public class insertItem {
     private int x;
     private int y;
     private char symbol;
 
-    public Item(){
+    public insertItem(){
         x = -1;
         y = -1;
         symbol = ' ';
     }
+
+
     public void setItem(int x, int y, char symbol)
     {
         this.x = x;

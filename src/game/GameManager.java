@@ -1,20 +1,25 @@
 package game;
 
+import AI.AILogic;
 import core.Player;
 import core.gameCore;
-import player.human;
+import player.AI_Interface;
+import player.humanInterface;
 
 public class GameManager {
     private gameCore gameMap = new gameCore();
-    private Player players[] = new human[2] ;
+    private Player players[] = new Player[2] ;
     private char current = ' ';
 
     public GameManager()
     {
-        players[0] = new human();
-        players[1] = new human();
+        players[0] = new humanInterface();
+        //players[1] = new humanInterface();
+        players[1] = new AI_Interface();
         players[0].setSymbol('X');
+        //players[1].setSymbol('O');
         players[1].setSymbol('O');
+        players[1].setOpponentSymbol(players[0].getSymbol());
     }
 
 
@@ -28,6 +33,13 @@ public class GameManager {
             System.out.println(gameMap.get_gameMapString());
             System.out.println(gameMap.getCount());
 
+            // TEST
+            /*
+            AILogic ai = new AILogic('X', 'O');
+            ai.update_gameMap(gameMap);
+            System.out.println("x = 1, y = 2 Chance is :" + ai.chanceCalculator(1,2,'O'));
+            */
+            // Find is X or O turn reset when O
             if(turn >= 1)
                 turn = 0;
             else
@@ -41,6 +53,7 @@ public class GameManager {
         {
             System.out.println("Drawn");
         }
+
     }
 
     public boolean checkGameWin()

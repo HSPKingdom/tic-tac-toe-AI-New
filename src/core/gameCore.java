@@ -1,6 +1,6 @@
 package core;
 
-import game.Item;
+import game.insertItem;
 
 public class gameCore {
 
@@ -23,7 +23,7 @@ public class gameCore {
     }
 
     /**
-     * Set the position to Item
+     * Set the position to insertItem
      * @param x     X - axis
      * @param y     Y - axis
      * @param item  Identifier X or O
@@ -34,14 +34,14 @@ public class gameCore {
         count += 1;
     }
 
-    public void setPosition(Item input)
+    public void setPosition(insertItem input)
     {
         game_map[input.getX()][input.getY()] = input.getSymbol();
         count += 1;
     }
 
     /**
-     * Get how many Item insert in the map
+     * Get how many insertItem insert in the map
      * @return  number
      */
     public int getCount() {
@@ -49,10 +49,10 @@ public class gameCore {
     }
 
     /**
-     * Get the Item from the position
+     * Get the insertItem from the position
      * @param x     X - axis
      * @param y     Y - axis
-     * @return  Item
+     * @return  insertItem
      */
     public char getPosition(int x, int y)
     {

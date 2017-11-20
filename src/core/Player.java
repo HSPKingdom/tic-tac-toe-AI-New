@@ -1,10 +1,10 @@
 package core;
 
-import game.Item;
+import game.insertItem;
 
 public abstract class Player {
     private char symbol;
-    private Item item = new Item();
+    private insertItem item = new insertItem();
 
     public Player()
     {
@@ -26,12 +26,14 @@ public abstract class Player {
         item.setItem(x, y, symbol);
     }
 
-    public Item getItem()
+    public insertItem getItem()
     {
         return item;
     }
 
-    public abstract Item setInput(gameCore game);
+    public abstract insertItem setInput(gameCore game);
+
+    public abstract void setOpponentSymbol(char opponentSymbol);
 
 
 

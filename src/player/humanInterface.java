@@ -2,12 +2,12 @@ package player;
 
 import core.Player;
 import core.gameCore;
-import game.Item;
+import game.insertItem;
 
 import java.util.Scanner;
 
-public class human extends Player {
-    public Item setInput(gameCore game)
+public class humanInterface extends Player {
+    public insertItem setInput(final gameCore game)
     {
         int x = 0 ,y = 0;
         boolean checkBox = false;
@@ -34,6 +34,10 @@ public class human extends Player {
             }
         }
         return getItem();
+    }
+    public void setOpponentSymbol(char opponentSymbol)
+    {
+
     }
 
 }
