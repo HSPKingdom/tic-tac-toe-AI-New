@@ -1,11 +1,12 @@
 package AI;
 
 import core.gameCore;
-import game.insertItem;
+
+import java.util.ArrayList;
 
 public class AIMain {
 
-    AILogic logic;
+    PositionCalculator logic;
     AIGame choice;
     char selfSymbol, opponentSymbol;
 
@@ -13,22 +14,33 @@ public class AIMain {
     {
         this.selfSymbol = selfSymbol;
         this.opponentSymbol = opponentSymbol;
-        logic =  new AILogic(selfSymbol, opponentSymbol);
+        logic =  new PositionCalculator(selfSymbol, opponentSymbol);
 
     }
 
     /*
     Set Next move by
-    using AILogic to Calculate each empty space chance
+    using PositionCalculator to Calculate each empty space chance
     Use AIGame to decide which space is chosen
      */
     public AIBlock setNextMove(final gameCore gameMap)
     {
         logic.update_gameMap(gameMap);
-        choice.updateOpponentChance(logic.all_AvailableBlock_chance(opponentSymbol));
+        ArrayList<AIBlock> allChances = logic.all_AvailableBlock_chance(opponentSymbol);
+        System.out.println(allChances.toString());
+        System.out.println(allChances.get(1).getChance());
 
+        return findLargestChanceOpponent(allChances);
 
-        return choice.findLargestChanceOpponent();
-
+    }
+    public AIBlock findLargestChanceOpponent(ArrayList<AIBlock> input)
+    {
+        AIBlock largest = input.get(0);
+        for (AIBlock eachBlock : input)
+        {
+            if (eachBlock.getChance() > largest.getChance())
+                largest = eachBlock;
+        }
+        return largest;
     }
 }

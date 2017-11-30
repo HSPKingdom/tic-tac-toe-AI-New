@@ -16,9 +16,9 @@ public class AI_Interface extends Player{
     }
     public insertItem setInput(final gameCore game)
     {
-        insertItem x = new insertItem();
+        insertItem AI_output = new insertItem();
         AIBlock result = ai.setNextMove(game);
-        x.setItem(result.getX(), result.getY(), getSymbol());
-        return x;
+        AI_output.setItem(result.getX(), result.getY(), getSymbol());
+        return AI_output;
     }
 }

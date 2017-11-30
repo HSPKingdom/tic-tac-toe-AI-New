@@ -1,6 +1,5 @@
 package game;
 
-import AI.AILogic;
 import core.Player;
 import core.gameCore;
 import player.AI_Interface;
@@ -35,7 +34,7 @@ public class GameManager {
 
             // TEST
             /*
-            AILogic ai = new AILogic('X', 'O');
+            PositionCalculator ai = new PositionCalculator('X', 'O');
             ai.update_gameMap(gameMap);
             System.out.println("x = 1, y = 2 Chance is :" + ai.chanceCalculator(1,2,'O'));
             */
